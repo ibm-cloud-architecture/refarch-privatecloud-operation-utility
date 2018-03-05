@@ -1,0 +1,26 @@
+# Variables used in various playbooks associated with the ICP cluster.
+---
+# The Ansible scripts that use this variable definition file assume GlusterFS is used
+# for the shared file system provider.
+#
+# NOTE: All of the following variable values are samples.  Edit to apply to your configuration.
+#
+# master_nodes can be a regular expression or a group name defined in the Ansible inventory.
+# If master_nodes is a regular expression it should exclusively match the master nodes.
+master_nodes: your-masters
+
+# Colon separated list of backup-volfile-servers for the private docker registry 
+registry_backup_volfile_servers: gluster01.csplab.local:gluster02.csplab.local 
+
+# The mount point for the private docker registry
+# Example assumes the shared volume is named icp_cluster01_private_registry
+registry_mount_point: gluster03.csplab.local:icp_cluster01_private_registry
+
+# Colon separated list of backup-volfile-servers for the audit log
+audit_backup_volfile_servers: gluster01.csplab.local:gluster02.csplab.local 
+
+# Audit log directory mount point
+# Example assumes the shared volume is named icp_cluster01_audit_log
+audit_mount_point: gluster03.csplab.local:icp_cluster01_audit_log
+
+...
